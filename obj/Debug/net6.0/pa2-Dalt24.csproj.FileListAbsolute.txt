@@ -1,0 +1,15 @@
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\bin\Debug\net6.0\pa2-Dalt24.exe
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\bin\Debug\net6.0\pa2-Dalt24.deps.json
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\bin\Debug\net6.0\pa2-Dalt24.runtimeconfig.json
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\bin\Debug\net6.0\pa2-Dalt24.dll
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\bin\Debug\net6.0\pa2-Dalt24.pdb
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.csproj.AssemblyReference.cache
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.AssemblyInfoInputs.cache
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.AssemblyInfo.cs
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.csproj.CoreCompileInputs.cache
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.dll
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\refint\pa2-Dalt24.dll
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.pdb
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\pa2-Dalt24.genruntimeconfig.cache
+C:\Users\dcwda\Desktop\MIS 221\Projects\pa2-Dalt24\obj\Debug\net6.0\ref\pa2-Dalt24.dll
