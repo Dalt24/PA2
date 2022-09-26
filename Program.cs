@@ -1,5 +1,7 @@
 ﻿/* Dalton Wright MIS-221-002 PA-2 */
-//can convert any of the 5 currencies to the other '4' // also handles cash more accurately using decimals // could be better with a class which defines a fixed point type//
+// can convert any of the 5 currencies to the other '4' // also handles cash more accurately using decimals // Runs until Exit or Improper Choice is made
+// could handle cash better with a class which defines a fixed point type // Used arrays to store possible currency names & conversions // 
+// Used the built in method 'Dictionary' to pair a key(currencyName) to a value (currencyConversionRate) *is a implementation of hash tables //
 
 Menu();//calls menu Method
 
@@ -36,7 +38,7 @@ static void Budget()// called from "Budget Calculator" in selection panel
         System.Console.WriteLine("You put $" + (decimal.Multiply((decimal)monthlyIncome, (decimal).20)).ToString("0.00") + " in Savings\nHow many people live in your house?");
         monthlyIncome = (decimal)monthlyIncome - (decimal.Multiply((decimal)monthlyIncome, (decimal).20)); // removing savings from money to spend
         int familyMembers = int.Parse(Console.ReadLine()); // assuming Readline isn't empty; how many family members live in the house 
-        if(familyMembers>0) // checking that user didn't input an invalid number of family members
+        if(familyMembers<=0) // checking that user didn't input an invalid number of family members
         {
             Compare((decimal.Multiply(monthlyIncome, (decimal).25)), "Housing"); //calling method to compare budget to money spent & print output using the % allotted to each 
             Compare((decimal.Multiply(monthlyIncome, (decimal).16)), "Food");
