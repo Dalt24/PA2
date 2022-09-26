@@ -9,19 +9,19 @@ static void Menu()
     while (isRunning == true) //menu repeater until bool == false
     {
         Console.WriteLine("Would you like to use the 'Budget Calculator', 'Currency Converter' or 'Exit'?"); //choices for Menu
-        string? inputChoice = Console.ReadLine(); // I'm assuming input isn't null / empty; could fix by checking readline !null
+        string? inputChoice = Console.ReadLine(); // I'm assuming input isn't null could fix by checking readline !null
 
         if (inputChoice.Contains("Budget Calculator")) Budget(); // start of selection panel; Call Budget
         else if (inputChoice.Contains("Currency Converter")) Converter(); // Call Converter
         else if (inputChoice.Contains("Exit"))
         { // Choice is to Exit
             System.Console.WriteLine("GoodBye!"); // bye message
-            isRunning = false;
+            isRunning = false; // stops while Loop criteria
         }
         else
         {
             System.Console.WriteLine($"None of your selections were valid, GoodBye!\n");
-            isRunning = false;
+            isRunning = false; // stops while Loop criteria
         }
     }//endWhile for selection panel;
 }//endMenu;
@@ -29,21 +29,24 @@ static void Menu()
 static void Budget()// called from "Budget Calculator" in selection panel
 {
     System.Console.WriteLine("What is your overall monthly income?"); // asking user for income
-    decimal monthlyIncome = decimal.Parse(Console.ReadLine()); // reading input and depositing 20% to savings
+    decimal monthlyIncome = decimal.Parse(Console.ReadLine()); // reading input
     if (monthlyIncome > 0) // checking if income is greater than 0
     {
         System.Console.WriteLine("You put $" + (decimal.Multiply((decimal)monthlyIncome, (decimal).20)).ToString("0.00") + " in Savings\nHow many people live in your house?");
         monthlyIncome = (decimal)monthlyIncome - (decimal.Multiply((decimal)monthlyIncome, (decimal).20)); // removing savings from money to spend
-        int familyMembers = int.Parse(Console.ReadLine()); // assuming Readline isn't empty; how many family members live in the house
-
-        Compare((decimal.Multiply(monthlyIncome, (decimal).25)), "Housing"); //calling method to compare budget to money spent & print output using the % allotted to each 
-        Compare((decimal.Multiply(monthlyIncome, (decimal).16)), "Food");
-        Compare((decimal.Multiply(monthlyIncome, (decimal).15)), "Transportation");
-        Compare(((decimal.Multiply(monthlyIncome, (decimal).25)) / familyMembers), "Entertainment"); // extra step to split Entertainment by # of people in house
-        Compare((decimal.Multiply(monthlyIncome, (decimal).11)), "Utilities");
-        Compare((decimal.Multiply(monthlyIncome, (decimal).08)), "Clothing"); // last method call to compare budget
+        int familyMembers = int.Parse(Console.ReadLine()); // assuming Readline isn't empty; how many family members live in the house 
+        if(familyMembers>0) // checking that user didn't input an invalid number of family members
+        {
+            Compare((decimal.Multiply(monthlyIncome, (decimal).25)), "Housing"); //calling method to compare budget to money spent & print output using the % allotted to each 
+            Compare((decimal.Multiply(monthlyIncome, (decimal).16)), "Food");
+            Compare((decimal.Multiply(monthlyIncome, (decimal).15)), "Transportation");
+            Compare(((decimal.Multiply(monthlyIncome, (decimal).25)) / familyMembers), "Entertainment"); // extra step to split Entertainment by # of people in house
+            Compare((decimal.Multiply(monthlyIncome, (decimal).11)), "Utilities");
+            Compare((decimal.Multiply(monthlyIncome, (decimal).08)), "Clothing"); // last method call to compare budget
+        }
+        else System.Console.WriteLine("Try again, you inputed an invalid number of people living in your House!\n");
     }
-    else System.Console.WriteLine("You Don't have an Income, try again with a number greater than Zero!");
+    else System.Console.WriteLine("You Don't have an Income, try again with a number greater than Zero!\n");
 }
 
 static void Compare(decimal budget, string string1)// method to compare budget to money spent & print output
@@ -51,7 +54,7 @@ static void Compare(decimal budget, string string1)// method to compare budget t
     System.Console.WriteLine($"Your available Budget for {string1} is $" + budget.ToString("0.00") + "\nHow much did you spend?"); // asking how much you spent
     decimal moneySpent = decimal.Parse(Console.ReadLine());//input amount spent on a provided expense (ex housing, food)
 
-    //checking if moneyspent is > < or = to the budget
+    //checking if moneyspent is greater than, less than ,or equal to the budget
     if (budget - moneySpent < 0) System.Console.WriteLine($"You went over your Budget by ${(-(budget - moneySpent)).ToString("0.00")}\n"); //over budget
     else if (budget - moneySpent > 0) System.Console.WriteLine($"You are under your Budget! Your leftover money is ${(budget - moneySpent).ToString("0.00")}\n"); //under budget printLine
     else if (budget - moneySpent == 0) System.Console.WriteLine("Good Job! you are exactly on Budget.\n"); // on budget printLine
@@ -71,7 +74,7 @@ static void Converter()// method for "Currency Converter"
         System.Console.WriteLine("How much money would you like to convert?");
         decimal moneyToConvert = decimal.Parse(Console.ReadLine()); // amount of $ to convert?
 
-        Dictionary<string, decimal> conversionHoldDict = new Dictionary<string, decimal>(); // hash table(kind of) implementation to bind a key to a value
+        Dictionary<string, decimal> conversionHoldDict = new Dictionary<string, decimal>(); // hash table implementation to bind a key(string) to a value(decimal)
 
         decimal[] conversionHold = new decimal[24]{ //array holding the "values" which will be bound to a key in the dictionary
         CR[0], CR[1], CR[2],CR[3], //array to hold all conversions possible from USD
@@ -89,6 +92,6 @@ static void Converter()// method for "Currency Converter"
             if (i < 5 && currency[i] != "Canadian Dollar") conversionHoldDict.Add(currency[4] + currency[i], conversionHold[i + 19]); //CD to Everything Else // +19 incs to next section of arr
         }
         System.Console.WriteLine($"{moneyToConvert} {begCurrency} converts to {(moneyToConvert * conversionHoldDict[begCurrency + endCurrency]).ToString("0.00")} {endCurrency}\n");
-    }
+    }// output of currency converter^
     else System.Console.WriteLine("The Currencies you Selected were not Valid\n"); // runs if the 2 inputed currencies aren't valid
-} // output of currency converter^
+} 
