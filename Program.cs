@@ -5,11 +5,11 @@ Menu();//calls menu Method
 
 static void Menu()
 {
-    bool isRunning = true; // bool which defaults to true when the program is running, when user "Exits" it ends program by being "false"
-    while (isRunning == true) //menu repeater until bool == false
+    bool isRunning = true; // bool which defaults to true when the program is running, when user "Exits" it ends the program by being "false"
+    while (isRunning == true) //menu repeats until bool == false
     {
         Console.WriteLine("Would you like to use the 'Budget Calculator', 'Currency Converter' or 'Exit'?"); //choices for Menu
-        string? inputChoice = Console.ReadLine(); // I'm assuming input isn't null could fix by checking readline !null
+        string? inputChoice = Console.ReadLine(); // I'm assuming input isn't null
 
         if (inputChoice.Contains("Budget Calculator")) Budget(); // start of selection panel; Call Budget
         else if (inputChoice.Contains("Currency Converter")) Converter(); // Call Converter
@@ -30,7 +30,8 @@ static void Budget()// called from "Budget Calculator" in selection panel
 {
     System.Console.WriteLine("What is your overall monthly income?"); // asking user for income
     decimal monthlyIncome = decimal.Parse(Console.ReadLine()); // reading input
-    if (monthlyIncome > 0) // checking if income is greater than 0
+    if (monthlyIncome <=0 )System.Console.WriteLine("You Don't have an Income, try again with a number greater than Zero!\n");
+    else // checking if the User's income is valid
     {
         System.Console.WriteLine("You put $" + (decimal.Multiply((decimal)monthlyIncome, (decimal).20)).ToString("0.00") + " in Savings\nHow many people live in your house?");
         monthlyIncome = (decimal)monthlyIncome - (decimal.Multiply((decimal)monthlyIncome, (decimal).20)); // removing savings from money to spend
@@ -46,8 +47,7 @@ static void Budget()// called from "Budget Calculator" in selection panel
         }
         else System.Console.WriteLine("Try again, you inputed an invalid number of people living in your House!\n");
     }
-    else System.Console.WriteLine("You Don't have an Income, try again with a number greater than Zero!\n");
-}
+}//endBudget
 
 static void Compare(decimal budget, string string1)// method to compare budget to money spent & print output
 {
@@ -61,7 +61,7 @@ static void Compare(decimal budget, string string1)// method to compare budget t
 }
 
 static void Converter()// method for "Currency Converter"
-{
+{//                                          0                1             2               3                 4
     string[] currency = new string[5] { "US Dollar", "British Pound", "Swiss Franc", "Indian Rupee", "Canadian Dollar" }; // arr of str to assign Currency to a position (0,1,2etc)
     decimal[] CR = new decimal[4] { 0.863m, 0.980m, 79.580m, 1.315m }; // array of base conversion rates from USD -> Other
     System.Console.WriteLine("Would you like to convert from US Dollar, British Pound, Swiss Franc, Indian Rupee, or Canadian Dollar?\n");
