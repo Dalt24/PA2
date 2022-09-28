@@ -38,7 +38,7 @@ static void Budget()// called from "Budget Calculator" in selection panel
         System.Console.WriteLine("You put $" + (decimal.Multiply((decimal)monthlyIncome, (decimal).20)).ToString("0.00") + " in Savings\nHow many people live in your house?");
         monthlyIncome = (decimal)monthlyIncome - (decimal.Multiply((decimal)monthlyIncome, (decimal).20)); // removing savings from money to spend
         int familyMembers = int.Parse(Console.ReadLine()); // assuming Readline isn't empty; how many family members live in the house 
-        if(familyMembers<=0) // checking that user didn't input an invalid number of family members
+        if(familyMembers>0) // checking that user didn't input an invalid number of family members
         {
             Compare((decimal.Multiply(monthlyIncome, (decimal).25)), "Housing"); //calling method to compare budget to money spent & print output using the % allotted to each 
             Compare((decimal.Multiply(monthlyIncome, (decimal).16)), "Food");
